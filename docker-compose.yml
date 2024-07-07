@@ -1,0 +1,17 @@
+version: "3.8"
+services:
+  myweb1:
+    build:
+      context: ./myweb1
+    image: myweb1
+    ports:
+      - "8000:80"
+    volumes:
+      - ./myweb1/index.html:/usr/share/nginx/html/index.html
+
+  myweb2:
+    image: nginx:alpine-slim
+    ports:
+      - "80:80"
+    volumes:
+      - ./myweb2:/usr/share/nginx/html
